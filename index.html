@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Live Code Editor</title>
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin= "anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <h2>Web Dev Project : Clone of Code Pen</h2>
+
+    <div class="container">
+
+       <div class="left">
+
+        <label><i class="fa-brands fa-html5"></i> HTML</label>
+        <textarea id="html-code"  onkeyup="run()"></textarea>
+
+        <label><i class="fa-brands fa-css3-alt "></i> CSS</label> 
+        <textarea id="css-code"  onkeyup="run()"></textarea>
+
+        <label><i class="fa-brands fa-js"></i> JavaScript</label> 
+        <textarea id="js-code" onkeyup="run()" ></textarea>
+
+        </div>
+
+    <div class="right">
+
+        <label id="outputlalbel"><i class="fa-solid fa-play" id = "btn" onclick="EvalJS()"></i> Output</label>
+        <iframe id="output"></iframe>
+
+    </div>
+
+
+    </div>
+
+    <footer>
+            <p>Quick Links</p>
+              
+            <p>&copy; <a href="https://mail.google.com/"><abbr title="milanmmilanm07846@gmail.com">milan</abbr></a></p>
+            <p><a href="https://github.com/Milan-7"><acronym title="Milan-7">github</acronym></a></p>
+            
+
+    </footer>
+
+<script>
+
+function run(){
+
+    let htmlCode = document.getElementById("html-code").value;
+
+    let cssCode = document.getElementById("css-code").value;
+
+    let output = document.getElementById("output");
+
+
+    output.contentDocument.body.innerHTML = htmlCode+"<style>"+cssCode +"</style>"; 
+    
+    
+
+}
+function EvalJS(){
+    let jsCode = document.getElementById("js-code").value;
+
+    let output = document.getElementById("output");
+    
+    output.contentWindow.eval(jsCode);
+}
+
+
+</script>
+</body>
+
